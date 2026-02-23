@@ -34,7 +34,7 @@ export default function MainPage() {
             <span>Boondirek K.</span>
           </h1>
           <p className="text-muted-foreground max-w-lg text-lg leading-relaxed">
-            Building software solutions for financial usage at JP
+            Building software solutions for financial services at JP
             Morgan Chase. Passionate about the intersection of engineering and
             finance — currently exploring MSc programmes in Financial
             Technology.
@@ -58,7 +58,8 @@ export default function MainPage() {
           </div>
         </div>
 
-        <div>
+        <div className="photo-wrapper">
+          <div className="photo-title">./me.jpg</div>
           <div className="photo-clip">
             <img src={myPhoto} alt="Boondirek K." />
           </div>

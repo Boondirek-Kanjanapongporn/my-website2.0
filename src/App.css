@@ -1,7 +1,32 @@
+.photo-wrapper{
+  position: relative;
+  display: inline-block;
+  scale: 2.4;
+}
+
+.photo-title {
+  position: absolute;
+  top: 0px;
+  left: 0;
+  z-index: 10;
+  height: 17px;
+  width: 67px;
+  background: #5e3023;
+  clip-path: inset(0.5px round 8px 0);
+  font-size: 8px;
+  font-weight: bold;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 3px;
+}
+
 .photo-clip {
+  position: relative;
   width: 250px;
   height: 230px;
-  scale: 2.3;
+  scale: 1;
   clip-path: path(
     "M 10,20 L 60,20 A 10,10 0,0,0 70,10 L 70,10 A 10,10 0,0,1 80,0 L 140,0 A 10,10 0,0,1 150,10 L 150,190 A 10,10 0,0,1 140,200 L 10,200 A 10,10 0,0,1 0,190 L 0,30 A 10,10 0,0,1 10,20 Z"
   );
