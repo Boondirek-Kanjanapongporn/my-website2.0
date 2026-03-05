@@ -1,116 +1,90 @@
-import { useRef, useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import * as Si from "react-icons/si";
 import { skillGroups } from "@/data/portfolioData";
 
-type SkillGroup = {
-  category: string;
-  skills: { name: string; icon: string }[];
-};
+type Skill = { name: string; icon: string };
+type SkillGroup = { category: string; skills: Skill[] };
 
 function SkillIcon({ iconName }: { iconName: string }) {
   const IconComponent = (
-    Si as Record<
-      string,
-      React.ComponentType<{ size?: number; className?: string }>
-    >
+    Si as Record<string, React.ComponentType<{ size?: number }>>
   )[iconName];
   if (!IconComponent) return <div className="bg-muted h-10 w-10 rounded" />;
   return <IconComponent size={40} />;
 }
 
 export default function SkillsBox() {
-  const scrollRef = useRef<HTMLDivElement>(null);
-  const sectionRefs = useRef<(HTMLDivElement | null)[]>([]);
   const [activeIndex, setActiveIndex] = useState(0);
+  const containerRef = useRef<HTMLDivElement>(null);
+  const total = skillGroups.length;
 
-  // Track active section on scroll
-  useEffect(() => {
-    const container = scrollRef.current;
-    if (!container) return;
-
-    const handleScroll = () => {
-      const containerTop = container.scrollTop;
-      let current = 0;
-      sectionRefs.current.forEach((ref, i) => {
-        if (ref && ref.offsetTop - 40 <= containerTop) {
-          current = i;
-        }
-      });
-      setActiveIndex(current);
-    };
-
-    container.addEventListener("scroll", handleScroll);
-    return () => container.removeEventListener("scroll", handleScroll);
-  }, []);
-
-  // Click dash to jump to section
-  const jumpTo = (i: number) => {
-    const ref = sectionRefs.current[i];
-    if (ref && scrollRef.current) {
-      scrollRef.current.scrollTo({
-        top: ref.offsetTop - 16,
-        behavior: "smooth",
-      });
-    }
-    setActiveIndex(i);
+  const goTo = (i: number) => {
+    setActiveIndex(Math.max(0, Math.min(total - 1, i)));
   };
 
+  useEffect(() => {
+    const el = containerRef.current;
+    if (!el) return;
+    const handleWheel = (e: WheelEvent) => {
+      e.preventDefault();
+      if (e.deltaY > 0) goTo(activeIndex + 1);
+      else goTo(activeIndex - 1);
+    };
+    el.addEventListener("wheel", handleWheel, { passive: false });
+    return () => el.removeEventListener("wheel", handleWheel);
+  }, [activeIndex]);
+
+  const group = skillGroups[activeIndex] as SkillGroup;
+
   return (
-    <div className="flex gap-6">
-      {/* Left: vertical dash nav */}
-      <div className="flex flex-col items-center gap-3 pt-2">
-        {skillGroups.map((group: SkillGroup, i: number) => (
+    <div className="flex items-stretch gap-4">
+      {/* Scrollable box */}
+      <div
+        ref={containerRef}
+        className="border-border bg-card flex-1 border"
+        style={{ height: "420px", cursor: "ns-resize" }}
+      >
+        {/* Header */}
+        <div className="border-border border-b px-8 py-5">
+          <h3 className="text-lg font-semibold">{group.category}</h3>
+          <p className="text-muted-foreground mt-1 text-xs">
+            {activeIndex + 1} / {total}
+          </p>
+        </div>
+
+        {/* Icon grid */}
+        <div className="grid grid-cols-3 gap-px sm:grid-cols-4 md:grid-cols-5">
+          {group.skills.map((skill: Skill) => (
+            <div
+              key={skill.name}
+              className="border-border bg-background hover:bg-accent flex flex-col items-center justify-center gap-3 border p-6 transition-colors"
+            >
+              <SkillIcon iconName={skill.icon} />
+              <span className="text-center text-xs font-semibold tracking-wide uppercase">
+                {skill.name}
+              </span>
+            </div>
+          ))}
+        </div>
+      </div>
+
+      {/* Right: vertical dash nav */}
+      <div className="flex flex-col items-center justify-center gap-4 py-2">
+        {skillGroups.map((_: SkillGroup, i: number) => (
           <button
-            key={group.category}
-            onClick={() => jumpTo(i)}
-            className="group flex flex-col items-center gap-1"
-            title={group.category}
+            key={i}
+            onClick={() => goTo(i)}
+            title={(skillGroups[i] as SkillGroup).category}
+            className="flex items-center justify-center"
           >
             <div
               className={`w-[3px] rounded-full transition-all duration-300 ${
                 activeIndex === i
-                  ? "bg-foreground h-10"
-                  : "bg-muted-foreground/40 group-hover:bg-muted-foreground h-6"
+                  ? "bg-foreground h-12"
+                  : "bg-muted-foreground/40 hover:bg-muted-foreground/70 h-6"
               }`}
             />
           </button>
-        ))}
-      </div>
-
-      {/* Right: scrollable icon grid */}
-      <div
-        ref={scrollRef}
-        className="border-border bg-card flex-1 overflow-y-auto border"
-        style={{ height: "420px" }}
-      >
-        {skillGroups.map((group: SkillGroup, i: number) => (
-          <div
-            key={group.category}
-            ref={(el) => {
-              sectionRefs.current[i] = el;
-            }}
-            className="p-8"
-          >
-            {/* Category header */}
-            <h3 className="text-foreground mb-6 text-lg font-semibold">
-              {group.category}
-            </h3>
-
-            {/* Icon grid */}
-            <div className="grid grid-cols-3 gap-4 sm:grid-cols-4 md:grid-cols-5">
-              {group.skills.map((skill) => (
-                <div
-                  key={skill.name}
-                  className="border-border bg-background hover:bg-accent flex flex-col items-center justify-center gap-3 border p-4 transition-colors"
-                >
-                  <SkillIcon iconName={skill.icon} />
-                  <span className="text-center text-xs font-semibold tracking-wide uppercase">
-                    {skill.name}
-                  </span>
-                </div>
-              ))}
-            </div>
-          </div>
         ))}
       </div>
     </div>
