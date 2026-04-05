@@ -22,6 +22,7 @@
     --input: 240 10% 20%;
     --ring: 0 0% 70%;
     --radius: 0.5rem;
+    --skill-tile: 240 10% 17%;
   }
 
   .light {
@@ -44,6 +45,7 @@
     --border: 0 0% 88%;
     --input: 0 0% 88%;
     --ring: 240 10% 30%;
+    --skill-tile: 220 15% 91%;
   }
 
   * {

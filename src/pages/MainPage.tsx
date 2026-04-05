@@ -63,17 +63,19 @@ export default function MainPage() {
       </section>
 
       {/* ── SKILLS ── */}
-      <section id="skills" className="border-b py-24">
-        <p className="text-muted-foreground mb-2 text-xs font-semibold tracking-[0.2em] uppercase">
-          What I work with
-        </p>
-        <h2 className="mb-2 text-3xl font-bold tracking-tight md:text-4xl">
-          Skills
-        </h2>
-        <p className="text-muted-foreground mb-12 text-sm">
-          Spoken languages: Thai (Native) · English (Professional)
-        </p>
-        <SkillsBox />
+      <section
+        id="skills"
+        className="mb-6 flex flex-col items-center py-5 text-center"
+      >
+        <div className="border-border mx-auto mb-6 flex w-full max-w-4xl flex-col items-center border px-5 py-5 text-center">
+          <h2 className="mb-2 text-3xl font-bold tracking-tight md:text-4xl">
+            What I Work With
+          </h2>
+          <p className="text-muted-foreground mb-6 text-sm">
+            Spoken languages: Thai (Native) · English (Professional)
+          </p>
+          <SkillsBox />
+        </div>
       </section>
 
       {/* ── EDUCATION ── */}

@@ -1,16 +1,31 @@
 import { useState, useEffect, useRef } from "react";
-import * as Si from "react-icons/si";
 import { skillGroups } from "@/data/portfolioData";
+import { useTheme } from "@/components/ThemeProvider";
 
 type Skill = { name: string; icon: string };
 type SkillGroup = { category: string; skills: Skill[] };
 
-function SkillIcon({ iconName }: { iconName: string }) {
-  const IconComponent = (
-    Si as Record<string, React.ComponentType<{ size?: number }>>
-  )[iconName];
-  if (!IconComponent) return <div className="bg-muted h-10 w-10 rounded" />;
-  return <IconComponent size={40} />;
+// Icons that need a white version in dark mode
+const darkModeWhiteIcons = ["apachekafka", "express", "next"];
+
+function SkillIcon({ skillName }: { skillName: string }) {
+  const { theme } = useTheme();
+  const fileName = skillName
+    .toLowerCase()
+    .replace(/\.js/g, "")
+    .replace(/\s+/g, "");
+  const needsWhite = theme === "dark" && darkModeWhiteIcons.includes(fileName);
+  const src = `/src/assets/icons/${fileName}${needsWhite ? "-white" : ""}.png`;
+
+  return (
+    <img
+      src={src}
+      alt={skillName}
+      width={40}
+      height={40}
+      style={{ width: "40px", height: "40px", objectFit: "contain" }}
+    />
+  );
 }
 
 export default function SkillsBox() {
@@ -37,15 +52,15 @@ export default function SkillsBox() {
   const group = skillGroups[activeIndex] as SkillGroup;
 
   return (
-    <div className="flex items-stretch gap-4">
+    <div className="flex w-full items-stretch gap-4">
       {/* Scrollable box */}
       <div
         ref={containerRef}
-        className="border-border bg-card flex-1 border"
+        className="bg-card w-full"
         style={{ height: "420px", cursor: "ns-resize" }}
       >
         {/* Header */}
-        <div className="border-border border-b px-8 py-5">
+        <div className="px-8 py-5">
           <h3 className="text-lg font-semibold">{group.category}</h3>
           <p className="text-muted-foreground mt-1 text-xs">
             {activeIndex + 1} / {total}
@@ -53,13 +68,14 @@ export default function SkillsBox() {
         </div>
 
         {/* Icon grid */}
-        <div className="grid grid-cols-3 gap-px sm:grid-cols-4 md:grid-cols-5">
+        <div className="grid grid-cols-3 gap-5 px-8 sm:grid-cols-4 md:grid-cols-5">
           {group.skills.map((skill: Skill) => (
             <div
               key={skill.name}
-              className="border-border bg-background hover:bg-accent flex flex-col items-center justify-center gap-3 border p-6 transition-colors"
+              className="border-border hover:bg-accent flex flex-col items-center justify-center gap-3 border p-6 transition-all duration-200 hover:scale-105"
+              style={{ backgroundColor: "hsl(var(--skill-tile))" }}
             >
-              <SkillIcon iconName={skill.icon} />
+              <SkillIcon skillName={skill.name} />
               <span className="text-center text-xs font-semibold tracking-wide uppercase">
                 {skill.name}
               </span>
@@ -78,10 +94,10 @@ export default function SkillsBox() {
             className="flex items-center justify-center"
           >
             <div
-              className={`w-[3px] rounded-full transition-all duration-300 ${
+              className={`w-[4px] rounded-full transition-all duration-300 ${
                 activeIndex === i
-                  ? "bg-foreground h-12"
-                  : "bg-muted-foreground/40 hover:bg-muted-foreground/70 h-6"
+                  ? "h-12 bg-[#5e3023]"
+                  : "h-6 bg-gray-400 hover:bg-gray-500"
               }`}
             />
           </button>

@@ -11,16 +11,16 @@ export const techBadges = [
 
 export const skillGroups = [
   {
-    category: "Languages",
+    category: "Programming Languages",
     skills: [
       { name: "TypeScript", icon: "SiTypescript" },
       { name: "JavaScript", icon: "SiJavascript" },
-      { name: "Java", icon: "SiOpenjdk" },
+      { name: "Java", icon: "FaJava" },
       { name: "Python", icon: "SiPython" },
       { name: "C", icon: "SiC" },
       { name: "C++", icon: "SiCplusplus" },
       { name: "Dart", icon: "SiDart" },
-      { name: "CSS", icon: "SiCss3" },
+      { name: "CSS", icon: "SiCss" },
       { name: "R", icon: "SiR" },
       { name: "SQL", icon: "SiMysql" },
     ],
