@@ -1,25 +1,43 @@
 import { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import { Sun, Moon, Menu, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { useTheme } from "./ThemeProvider";
 
 const navLinks = [
-  { label: "Home", href: "/#home" },
-  { label: "About", href: "/#about" },
-  { label: "Skills", href: "/#skills" },
-  { label: "Education", href: "/#education" },
-  { label: "Projects", href: "/projects" },
+  { label: "Home", href: "/", section: "home" },
+  { label: "Experience", href: "/", section: "experience" },
+  { label: "Skills", href: "/", section: "skills" },
+  { label: "Education", href: "/", section: "education" },
+  { label: "Projects", href: "/projects", section: null },
 ];
 
 export default function Navbar() {
   const { theme, toggle } = useTheme();
   const [menuOpen, setMenuOpen] = useState(false);
+  const location = useLocation();
+
+  const handleNavClick = (e: React.MouseEvent, section: string | null, href: string) => {
+    if (!section) return; // let normal navigation happen for /projects
+
+    e.preventDefault();
+
+    if (location.pathname !== "/") {
+      // Navigate to home first, then scroll
+      window.location.href = `/#${section}`;
+      return;
+    }
+
+    const el = document.getElementById(section);
+    if (el) {
+      el.scrollIntoView({ behavior: "smooth" });
+    }
+    setMenuOpen(false);
+  };
 
   return (
-    <header className="sticky top-0 z-50 border-b bg-background/90 backdrop-blur">
+    <header className="bg-background/90 sticky top-0 z-50 border-b backdrop-blur">
       <div className="mx-auto flex max-w-6xl items-center justify-between px-6 py-4">
-
         {/* Logo */}
         <Link to="/" className="text-lg font-semibold tracking-tight">
           Boondirek K.
@@ -27,19 +45,25 @@ export default function Navbar() {
 
         {/* Desktop nav */}
         <nav className="hidden items-center gap-6 md:flex">
-            {navLinks.map((link) => (
-                <Link
-                key={link.label}
-                to={link.href}
-                className="text-sm text-muted-foreground transition-colors hover:text-foreground"
-                >
-                {link.label}
-                </Link>
-            ))}
-            <Button variant="ghost" size="icon" onClick={toggle} aria-label="Toggle theme">
-                {theme === "dark" ? <Sun size={16} /> : <Moon size={16} />}
-            </Button>
-            <Button size="sm">Contact</Button>
+          {navLinks.map((link) => (
+            <a
+              key={link.label}
+              href={link.section ? `#${link.section}` : link.href}
+              onClick={(e) => handleNavClick(e, link.section, link.href)}
+              className="text-muted-foreground hover:text-foreground text-sm transition-colors"
+            >
+              {link.label}
+            </a>
+          ))}
+          <Button
+            variant="ghost"
+            size="icon"
+            onClick={toggle}
+            aria-label="Toggle theme"
+          >
+            {theme === "dark" ? <Sun size={16} /> : <Moon size={16} />}
+          </Button>
+          <Button size="sm">Contact</Button>
         </nav>
 
         {/* Mobile: theme toggle + hamburger */}
@@ -47,7 +71,11 @@ export default function Navbar() {
           <Button variant="ghost" size="icon" onClick={toggle}>
             {theme === "dark" ? <Sun size={16} /> : <Moon size={16} />}
           </Button>
-          <Button variant="ghost" size="icon" onClick={() => setMenuOpen(!menuOpen)}>
+          <Button
+            variant="ghost"
+            size="icon"
+            onClick={() => setMenuOpen(!menuOpen)}
+          >
             {menuOpen ? <X size={18} /> : <Menu size={18} />}
           </Button>
         </div>
@@ -55,21 +83,21 @@ export default function Navbar() {
 
       {/* Mobile menu */}
       {menuOpen && (
-        <div className="border-t bg-background px-6 py-4 md:hidden">
-            <nav className="flex flex-col gap-4">
+        <div className="bg-background border-t px-6 py-4 md:hidden">
+          <nav className="flex flex-col gap-4">
             {navLinks.map((link) => (
-                <Link
+              <a
                 key={link.label}
-                to={link.href}
-                className="text-sm text-muted-foreground hover:text-foreground"
-                onClick={() => setMenuOpen(false)}
-                >
+                href={link.section ? `#${link.section}` : link.href}
+                onClick={(e) => handleNavClick(e, link.section, link.href)}
+                className="text-muted-foreground hover:text-foreground text-sm"
+              >
                 {link.label}
-                </Link>
+              </a>
             ))}
-            </nav>
+          </nav>
         </div>
-     )}
+      )}
     </header>
   );
 }

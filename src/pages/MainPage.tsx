@@ -12,6 +12,7 @@ import {
 } from "lucide-react";
 import myPhoto from "@/assets/me.jpg";
 import SkillsBox from "@/components/SkillsBox";
+import ExperienceSection from "@/components/ExperienceSection";
 
 export default function MainPage() {
   return (
@@ -61,6 +62,9 @@ export default function MainPage() {
           </div>
         </div>
       </section>
+
+      {/* ── EXPERIENCE ── */}
+      <ExperienceSection />
 
       {/* ── SKILLS ── */}
       <section
