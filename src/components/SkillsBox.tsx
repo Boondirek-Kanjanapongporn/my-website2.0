@@ -85,7 +85,7 @@ export default function SkillsBox() {
       </div>
 
       {/* Right: vertical dash nav */}
-      <div className="flex flex-col items-center justify-center gap-4 py-2">
+      <div className="flex flex-col items-center justify-center gap-4 py-2 px-8">
         {skillGroups.map((_: SkillGroup, i: number) => (
           <button
             key={i}

@@ -113,46 +113,14 @@ export default function ExperienceSection() {
         Where I've worked
       </p>
 
-      {/* Header row with pagination */}
+      {/* Header row with page counter */}
       <div className="mb-12 flex items-center justify-between">
         <h2 className="text-3xl font-bold tracking-tight md:text-4xl">
           Experience
         </h2>
-        <div className="flex items-center gap-3">
-          {/* Page dots */}
-          <div className="flex gap-2">
-            {Array.from({ length: totalPages }).map((_, i) => (
-              <button
-                key={i}
-                onClick={() => goTo(i)}
-                className={`rounded-full transition-all duration-300 ${
-                  page === i
-                    ? "bg-foreground h-2 w-6"
-                    : "bg-muted-foreground/40 hover:bg-muted-foreground h-2 w-2"
-                }`}
-              />
-            ))}
-          </div>
-          {/* Prev / Next */}
-          <Button
-            variant="outline"
-            size="icon"
-            className="h-8 w-8"
-            onClick={() => goTo(page - 1)}
-            disabled={page === 0}
-          >
-            <ChevronLeft size={14} />
-          </Button>
-          <Button
-            variant="outline"
-            size="icon"
-            className="h-8 w-8"
-            onClick={() => goTo(page + 1)}
-            disabled={page === totalPages - 1}
-          >
-            <ChevronRight size={14} />
-          </Button>
-        </div>
+        <span className="text-muted-foreground text-sm">
+          Page {page + 1} of {totalPages}
+        </span>
       </div>
 
       {/* Cards */}
@@ -162,10 +130,43 @@ export default function ExperienceSection() {
         ))}
       </div>
 
-      {/* Bottom page counter */}
-      <p className="text-muted-foreground mt-6 text-right text-xs">
-        Page {page + 1} of {totalPages}
-      </p>
+      {/* Bottom-right pagination */}
+      <div className="mt-8 flex items-center justify-end gap-1">
+        <Button
+          variant="ghost"
+          size="icon"
+          className="h-8 w-8"
+          onClick={() => goTo(page - 1)}
+          disabled={page === 0}
+        >
+          <ChevronLeft size={14} />
+        </Button>
+
+        {Array.from({ length: totalPages }).map((_, i) => (
+          <Button
+            key={i}
+            size="icon"
+            className={`h-8 w-8 text-xs transition-colors ${
+              page === i
+                ? "bg-[#5e3023] text-white hover:bg-[#4a2419]"
+                : "text-muted-foreground hover:text-foreground hover:bg-accent bg-transparent"
+            }`}
+            onClick={() => goTo(i)}
+          >
+            {i + 1}
+          </Button>
+        ))}
+
+        <Button
+          variant="ghost"
+          size="icon"
+          className="h-8 w-8"
+          onClick={() => goTo(page + 1)}
+          disabled={page === totalPages - 1}
+        >
+          <ChevronRight size={14} />
+        </Button>
+      </div>
     </section>
   );
 }
