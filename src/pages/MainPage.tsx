@@ -1,18 +1,16 @@
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { techBadges, skillGroups, education } from "@/data/portfolioData";
+import { techBadges } from "@/data/portfolioData";
 import { Link } from "react-router-dom";
 import {
   ArrowRight,
   Download,
-  GraduationCap,
-  MapPin,
-  Calendar,
+  Wrench,
 } from "lucide-react";
 import myPhoto from "@/assets/me.jpg";
 import SkillsBox from "@/components/SkillsBox";
 import ExperienceSection from "@/components/ExperienceSection";
+import EducationSection from "@/components/EducationSection";
 
 export default function MainPage() {
   return (
@@ -29,7 +27,9 @@ export default function MainPage() {
           <h1 className="text-5xl leading-tight font-bold tracking-tight md:text-7xl">
             Hi, I'm
             <br />
-            <span>Boondirek K.</span>
+            <span>
+              {"<"}Boondirek K.{">"}
+            </span>
           </h1>
           <p className="text-muted-foreground max-w-lg text-lg leading-relaxed">
             Building software solutions for financial services at JP Morgan
@@ -71,8 +71,8 @@ export default function MainPage() {
         <p className="text-muted-foreground mb-2 text-xs font-semibold tracking-[0.2em] uppercase">
           What I work with
         </p>
-        <h2 className="mb-2 text-3xl font-bold tracking-tight md:text-4xl">
-          Skills
+        <h2 className="mb-2 flex items-center gap-3 text-3xl font-bold tracking-tight md:text-4xl">
+          Skills <Wrench size={32} />
         </h2>
         <p className="text-muted-foreground mb-12 text-sm">
           Spoken languages: Thai (Native) · English (Professional)
@@ -83,55 +83,7 @@ export default function MainPage() {
       </section>
 
       {/* ── EDUCATION ── */}
-      <section id="education" className="py-24">
-        <p className="text-muted-foreground mb-2 text-xs font-semibold tracking-[0.2em] uppercase">
-          Academic background
-        </p>
-        <h2 className="mb-12 text-3xl font-bold tracking-tight md:text-4xl">
-          Education
-        </h2>
-
-        <div className="flex flex-col gap-6">
-          {education.map((edu) => (
-            <Card
-              key={edu.institution}
-              className="bg-card border-border border"
-            >
-              <CardHeader className="pb-3">
-                <div className="flex items-start justify-between gap-4">
-                  <div className="flex items-center gap-3">
-                    <div className="bg-muted flex h-10 w-10 flex-shrink-0 items-center justify-center rounded-md">
-                      <GraduationCap
-                        size={18}
-                        className="text-muted-foreground"
-                      />
-                    </div>
-                    <div>
-                      <CardTitle className="text-base font-semibold">
-                        {edu.institution}
-                      </CardTitle>
-                      <p className="text-muted-foreground text-sm">
-                        {edu.degree}
-                      </p>
-                    </div>
-                  </div>
-                  <Badge variant="secondary" className="flex-shrink-0 text-xs">
-                    {edu.honour}
-                  </Badge>
-                </div>
-              </CardHeader>
-              <CardContent className="text-muted-foreground flex flex-wrap gap-4 text-xs">
-                <span className="flex items-center gap-1">
-                  <MapPin size={12} /> {edu.location}
-                </span>
-                <span className="flex items-center gap-1">
-                  <Calendar size={12} /> {edu.date}
-                </span>
-              </CardContent>
-            </Card>
-          ))}
-        </div>
-      </section>
+      <EducationSection />
     </div>
   );
 }

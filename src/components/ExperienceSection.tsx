@@ -7,9 +7,11 @@ import {
   Calendar,
   ChevronLeft,
   ChevronRight,
+  Briefcase,
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import { experience } from "@/data/portfolioData";
+import { useTheme } from "@/components/ThemeProvider";
+import { experience } from "@/data/experienceData";
 
 const PAGE_SIZE = 3;
 
@@ -17,17 +19,21 @@ type ExperienceItem = (typeof experience)[0];
 
 function ExperienceCard({ item }: { item: ExperienceItem }) {
   const [expanded, setExpanded] = useState(false);
+  const { theme } = useTheme();
+  const logo = theme === "dark" ? item.logoDark : item.logoLight;
 
   return (
     <div className="border-border bg-card border transition-all duration-200">
       <div className="flex items-start gap-4 p-6">
-        {/* Timeline dot */}
-        <div className="flex flex-col items-center pt-1">
-          <div className="border-border bg-background h-3 w-3 flex-shrink-0 rounded-full border-2" />
-          <div
-            className="bg-border mt-2 w-[1px] flex-1"
-            style={{ minHeight: "40px" }}
-          />
+        {/* Company logo */}
+        <div className="flex-shrink-0">
+          <div className="bg-background border-border h-16 w-16 overflow-hidden rounded-lg">
+            <img
+              src={logo}
+              alt={item.company}
+              className="h-full w-full object-cover"
+            />
+          </div>
         </div>
 
         {/* Content */}
@@ -80,7 +86,7 @@ function ExperienceCard({ item }: { item: ExperienceItem }) {
           </button>
 
           {expanded && (
-            <ul className="border-border mt-1 flex flex-col gap-2 border-l pl-4">
+            <ul className="border-border mt-1 flex flex-col gap-2 border-l-3 pl-4">
               {item.bullets.map((b, i) => (
                 <li
                   key={i}
@@ -104,7 +110,6 @@ export default function ExperienceSection() {
     page * PAGE_SIZE,
     page * PAGE_SIZE + PAGE_SIZE,
   );
-
   const goTo = (i: number) => setPage(Math.max(0, Math.min(totalPages - 1, i)));
 
   return (
@@ -113,24 +118,21 @@ export default function ExperienceSection() {
         Where I've worked
       </p>
 
-      {/* Header row with page counter */}
       <div className="mb-12 flex items-center justify-between">
-        <h2 className="text-3xl font-bold tracking-tight md:text-4xl">
-          Experience
+        <h2 className="flex items-center gap-3 text-3xl font-bold tracking-tight md:text-4xl">
+          Experience <Briefcase size={32} />
         </h2>
         <span className="text-muted-foreground text-sm">
           Page {page + 1} of {totalPages}
         </span>
       </div>
 
-      {/* Cards */}
       <div className="flex flex-col gap-3">
         {paged.map((item) => (
           <ExperienceCard key={item.company + item.date} item={item} />
         ))}
       </div>
 
-      {/* Bottom-right pagination */}
       <div className="mt-8 flex items-center justify-end gap-1">
         <Button
           variant="ghost"
@@ -149,7 +151,7 @@ export default function ExperienceSection() {
             className={`h-8 w-8 text-xs transition-colors ${
               page === i
                 ? "bg-[#5e3023] text-white hover:bg-[#4a2419]"
-                : "text-muted-foreground hover:text-foreground hover:bg-accent bg-transparent"
+                : "text-muted-foreground hover:bg-accent hover:text-foreground bg-transparent"
             }`}
             onClick={() => goTo(i)}
           >
