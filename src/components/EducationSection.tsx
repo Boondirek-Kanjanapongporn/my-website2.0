@@ -22,11 +22,11 @@ function EducationCard({ edu }: { edu: EducationItem }) {
       <div className="flex items-start gap-4 p-6">
         {/* Logo */}
         <div className="flex-shrink-0">
-          <div className="bg-background border-border h-12 w-12 overflow-hidden rounded-lg border">
+          <div className="bg-background border-border h-12 w-12 overflow-hidden rounded-lg">
             <img
               src={logo}
               alt={edu.institution}
-              className="h-full w-full object-contain p-1"
+              className="h-full w-full object-fill"
             />
           </div>
         </div>
