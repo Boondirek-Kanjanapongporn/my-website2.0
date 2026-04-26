@@ -79,7 +79,7 @@ function EducationCard({ edu }: { edu: EducationItem }) {
                       key={i}
                       className="text-muted-foreground text-sm leading-relaxed"
                     >
-                      {b}
+                      • {b}
                     </li>
                   ))}
                 </ul>

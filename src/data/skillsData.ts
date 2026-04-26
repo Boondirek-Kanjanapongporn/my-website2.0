@@ -1,16 +1,3 @@
-{/* ── HERO ── */}
-export const techBadges = [
-  "Vite",
-  "TypeScript",
-  "React",
-  "Java",
-  "Spring Boot",
-  "SQL",
-  "Python",
-  "Git",
-];
-
-{/* ── SKILLS ── */}
 export const skillGroups = [
   {
     category: "Programming Languages",
@@ -46,23 +33,5 @@ export const skillGroups = [
       { name: "Apache Kafka", icon: "SiApachekafka" },
       { name: "Vite", icon: "SiVite" },
     ],
-  },
-];
-
-{/* ── EDUCATION ── */}
-export const education = [
-  {
-    institution: "University of Glasgow",
-    degree: "BSc Software Engineering — Computer Science",
-    honour: "First-Class Honours",
-    location: "Glasgow, United Kingdom",
-    date: "Sep 2022 – May 2024",
-  },
-  {
-    institution: "King Mongkut's Institute of Technology Ladkrabang",
-    degree: "BEng Computer Engineering — Software Engineer",
-    honour: "First-Class Honours",
-    location: "Bangkok, Thailand",
-    date: "Aug 2020 – Aug 2022",
   },
 ];

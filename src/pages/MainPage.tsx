@@ -1,16 +1,13 @@
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
-import { techBadges } from "@/data/portfolioData";
 import { Link } from "react-router-dom";
-import {
-  ArrowRight,
-  Download,
-  Wrench,
-} from "lucide-react";
+import { ArrowRight, Download, Wrench } from "lucide-react";
+import { techBadges, contactLinks } from "@/data/heroData";
+import ContactIcons from "@/components/ContactIcons";
 import myPhoto from "@/assets/me.jpg";
 import SkillsBox from "@/components/SkillsBox";
-import ExperienceSection from "@/components/ExperienceSection";
-import EducationSection from "@/components/EducationSection";
+import ExperienceSection from "@/sections/ExperienceSection";
+import EducationSection from "@/sections/EducationSection";
 
 export default function MainPage() {
   return (
@@ -53,6 +50,7 @@ export default function MainPage() {
               </Badge>
             ))}
           </div>
+          <ContactIcons />
         </div>
 
         <div className="photo-wrapper">
