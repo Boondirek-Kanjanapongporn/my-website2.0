@@ -5,8 +5,8 @@ export const education = [
     honour: "First-Class Honours",
     location: "Glasgow, United Kingdom",
     date: "Sep 2022 – May 2024",
-    logoDark: "/src/assets/icons/universityofglasgow.jpg",
-    logoLight: "/src/assets/icons/universityofglasgow.jpg",
+    logoDark: "/src/assets/logos/universityofglasgow.jpg",
+    logoLight: "/src/assets/logos/universityofglasgow.jpg",
     bullets: [
       "Software Engineer Intern at JP Morgan Chase",
       "GUSS Software Developer at University of Glasgow",
@@ -19,8 +19,8 @@ export const education = [
     honour: "First-Class Honours",
     location: "Bangkok, Thailand",
     date: "Aug 2020 – Aug 2022",
-    logoDark: "/src/assets/icons/kmitl.png",
-    logoLight: "/src/assets/icons/kmitl.png",
+    logoDark: "/src/assets/logos/kmitl.png",
+    logoLight: "/src/assets/logos/kmitl.png",
     bullets: [
       "Python Teacher Assistant for 'Introduction to Programming' course",
       "Full Stack Developer Intern at MFEC Public Company Limited",
