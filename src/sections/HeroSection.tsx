@@ -29,14 +29,22 @@ export default function HeroSection() {
           currently exploring MSc programmes in Financial Technology.
         </p>
         <div className="flex flex-wrap gap-3">
-          <Button asChild>
-            <Link to="/projects">
-              View Projects <ArrowRight size={15} className="ml-2" />
-            </Link>
-          </Button>
-          <Button variant="outline">
-            <Download size={15} className="mr-2" /> Resume
-          </Button>
+          <div className="flex flex-wrap gap-3">
+            <a
+              href="/projects"
+              className="flex w-fit items-center gap-2 rounded-sm border px-4 py-2 text-sm font-medium transition-colors duration-200 hover:bg-[hsl(var(--skill-tile))]"
+              style={{ borderColor: "hsl(var(--border))" }}
+            >
+              View Projects <ArrowRight size={15} />
+            </a>
+
+            <button
+              className="flex w-fit items-center gap-2 rounded-sm border px-4 py-2 text-sm font-medium transition-colors duration-200 hover:bg-[hsl(var(--skill-tile))]"
+              style={{ borderColor: "hsl(var(--border))" }}
+            >
+              <Download size={15} /> Resume
+            </button>
+          </div>
         </div>
         <div className="flex flex-wrap gap-2">
           {techBadges.map((t) => (

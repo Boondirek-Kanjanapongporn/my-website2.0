@@ -102,8 +102,8 @@ export default function ProjectModal({ project, onClose }: Props) {
       <div
         className="border-border relative flex max-h-[90vh] w-full max-w-2xl flex-col overflow-y-auto border"
         style={{
-          backgroundColor: theme === "dark" ? "#0a0a0f" : "#ffffff",
-          color: theme === "dark" ? "hsl(0 0% 95%)" : "hsl(240 10% 8%)",
+          backgroundColor: "hsl(var(--background))",
+          color: "hsl(var(--foreground))",
         }}
         onClick={(e) => e.stopPropagation()}
       >

@@ -36,7 +36,13 @@ export default function Navbar() {
   };
 
   return (
-    <header className="bg-background/90 sticky top-0 z-50 border-b backdrop-blur">
+    <header
+      className="sticky top-0 z-50 border-b"
+      style={{
+        backgroundColor: "hsl(var(--background))",
+        color: "hsl(var(--foreground))",
+      }}
+    >
       <div className="mx-auto flex max-w-6xl items-center justify-between px-6 py-4">
         {/* Logo */}
         <Link to="/" className="text-lg font-semibold tracking-tight">
