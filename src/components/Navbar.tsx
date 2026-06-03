@@ -66,6 +66,7 @@ export default function Navbar() {
             size="icon"
             onClick={toggle}
             aria-label="Toggle theme"
+            className="cursor-pointer"
           >
             {theme === "dark" ? <Sun size={16} /> : <Moon size={16} />}
           </Button>
@@ -74,7 +75,12 @@ export default function Navbar() {
 
         {/* Mobile: theme toggle + hamburger */}
         <div className="flex items-center gap-2 md:hidden">
-          <Button variant="ghost" size="icon" onClick={toggle}>
+          <Button
+            variant="ghost"
+            size="icon"
+            onClick={toggle}
+            className="cursor-pointer"
+          >
             {theme === "dark" ? <Sun size={16} /> : <Moon size={16} />}
           </Button>
           <Button

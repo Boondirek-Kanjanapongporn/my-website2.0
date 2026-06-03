@@ -47,10 +47,10 @@ function EducationCard({ edu }: { edu: EducationItem }) {
           {/* Location + date on same x-axis as institution */}
           <div className="text-muted-foreground flex flex-wrap gap-3 text-xs">
             <span className="flex items-center gap-1">
-              <MapPin size={11} /> {edu.location}
+              <Calendar size={11} /> {edu.date}
             </span>
             <span className="flex items-center gap-1">
-              <Calendar size={11} /> {edu.date}
+              <MapPin size={11} /> {edu.location}
             </span>
           </div>
 
@@ -59,7 +59,7 @@ function EducationCard({ edu }: { edu: EducationItem }) {
             <>
               <button
                 onClick={() => setExpanded(!expanded)}
-                className="text-muted-foreground hover:text-foreground flex w-fit items-center gap-1 text-xs transition-colors"
+                className="text-muted-foreground hover:text-foreground flex w-fit cursor-pointer items-center gap-1 text-xs transition-colors"
               >
                 {expanded ? (
                   <>

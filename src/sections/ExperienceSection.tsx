@@ -72,7 +72,7 @@ function ExperienceCard({ item }: { item: ExperienceItem }) {
 
           <button
             onClick={() => setExpanded(!expanded)}
-            className="text-muted-foreground hover:text-foreground flex w-fit items-center gap-1 text-xs transition-colors"
+            className="text-muted-foreground hover:text-foreground flex w-fit items-center gap-1 text-xs transition-colors cursor-pointer"
           >
             {expanded ? (
               <>

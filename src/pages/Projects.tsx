@@ -16,12 +16,9 @@ export default function Projects() {
   const [activeCategory, setActiveCategory] = useState("All");
   const [selectedProject, setSelectedProject] = useState<Project | null>(null);
 
-  const filtered =
-    activeCategory === "All"
-      ? projects
-      : projects.filter((p) =>
-          p.category.includes(activeCategory as Project["category"][number]),
-        );
+  const filtered = activeCategory === "All"
+  ? projects
+  : projects.filter((p) => p.category.includes(activeCategory as Project["category"][number]));
 
   return (
     <div className="mx-auto max-w-6xl px-6 py-20">
@@ -37,7 +34,7 @@ export default function Projects() {
           <button
             key={cat}
             onClick={() => setActiveCategory(cat)}
-            className={`rounded-sm border px-4 py-1.5 text-xs font-medium transition-colors ${
+            className={`rounded-sm border px-4 py-1.5 text-xs font-medium transition-colors cursor-pointer ${
               activeCategory === cat
                 ? "border-transparent text-white"
                 : "border-border text-muted-foreground hover:text-foreground hover:border-foreground"
