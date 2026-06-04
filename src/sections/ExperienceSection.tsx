@@ -137,7 +137,7 @@ export default function ExperienceSection() {
         <Button
           variant="ghost"
           size="icon"
-          className="h-8 w-8"
+          className="h-8 w-8 cursor-pointer"
           onClick={() => goTo(page - 1)}
           disabled={page === 0}
         >
@@ -148,7 +148,7 @@ export default function ExperienceSection() {
           <Button
             key={i}
             size="icon"
-            className={`h-8 w-8 text-xs transition-colors ${
+            className={`h-8 w-8 text-xs transition-colors cursor-pointer ${
               page === i
                 ? "bg-[#5e3023] text-white hover:bg-[#4a2419]"
                 : "text-muted-foreground hover:bg-accent hover:text-foreground bg-transparent"
@@ -162,7 +162,7 @@ export default function ExperienceSection() {
         <Button
           variant="ghost"
           size="icon"
-          className="h-8 w-8"
+          className="h-8 w-8 cursor-pointer"
           onClick={() => goTo(page + 1)}
           disabled={page === totalPages - 1}
         >

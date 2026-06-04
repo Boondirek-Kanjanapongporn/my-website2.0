@@ -39,7 +39,7 @@ export default function HeroSection() {
             </a>
 
             <button
-              className="flex w-fit items-center gap-2 rounded-sm border px-4 py-2 text-sm font-medium transition-colors duration-200 hover:bg-[hsl(var(--skill-tile))]"
+              className="flex w-fit items-center gap-2 rounded-sm border px-4 py-2 text-sm font-medium transition-colors duration-200 hover:bg-[hsl(var(--skill-tile))] cursor-pointer"
               style={{ borderColor: "hsl(var(--border))" }}
             >
               <Download size={15} /> Resume
