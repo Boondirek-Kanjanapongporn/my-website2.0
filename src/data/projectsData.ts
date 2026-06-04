@@ -6,6 +6,7 @@ export type Project = {
   badges: string[];
   github?: string;
   dissertationLink?: string;
+  gameLink?: string;
   imageCount: number;
   hasVideo: boolean;
   category: ("Game" | "Web" | "AI/ML" | "Computer Vision" | "Systems")[];
@@ -110,6 +111,7 @@ As the game progresses, the number and unpredictability of enemies increase, enc
     badges: ["Construct 2"],
     imageCount: 4,
     hasVideo: true,
+    gameLink: "https://loan-survivor.netlify.app/",
     category: ["Game"],
   },
 ];

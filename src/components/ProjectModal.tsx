@@ -1,5 +1,12 @@
 import { useEffect, useState } from "react";
-import { X, Github, FileText, ChevronLeft, ChevronRight } from "lucide-react";
+import {
+  X,
+  Github,
+  FileText,
+  ChevronLeft,
+  ChevronRight,
+  Gamepad2,
+} from "lucide-react";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import type { Project } from "@/data/projectsData";
@@ -200,6 +207,24 @@ export default function ProjectModal({ project, onClose }: Props) {
               >
                 <FileText size={15} />
                 Read Dissertation
+              </a>
+            )}
+            {project.gameLink && (
+              <a
+                href={project.gameLink}
+                target="_blank"
+                rel="noreferrer"
+                className="flex w-fit items-center gap-2 rounded-sm px-4 py-2 text-sm font-medium text-white transition-colors duration-200"
+                style={{ backgroundColor: "#5e3023" }}
+                onMouseEnter={(e) =>
+                  (e.currentTarget.style.backgroundColor = "#4a2419")
+                }
+                onMouseLeave={(e) =>
+                  (e.currentTarget.style.backgroundColor = "#5e3023")
+                }
+              >
+                <Gamepad2 size={15} />
+                Play Game
               </a>
             )}
           </div>
