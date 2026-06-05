@@ -1,11 +1,6 @@
 import { useState } from "react";
-import { Badge } from "@/components/ui/badge";
 import {
-  MapPin,
-  Calendar,
-  ChevronDown,
-  ChevronUp,
-  GraduationCap,
+  MapPin, Calendar, ChevronDown, ChevronUp, GraduationCap, FileText,
 } from "lucide-react";
 import { useTheme } from "@/components/ThemeProvider";
 import { education } from "@/data/educationData";
@@ -33,18 +28,21 @@ function EducationCard({ edu }: { edu: EducationItem }) {
 
         {/* Content */}
         <div className="flex flex-1 flex-col gap-3">
-          {/* Top row: institution + badge */}
+          {/* Top row: institution + honour + grade */}
           <div className="flex flex-col gap-1 sm:flex-row sm:items-start sm:justify-between">
             <div>
               <h3 className="text-base font-semibold">{edu.institution}</h3>
               <p className="text-muted-foreground text-sm">{edu.degree}</p>
             </div>
-            <Badge variant="secondary" className="w-fit flex-shrink-0 text-xs">
-              {edu.honour}
-            </Badge>
+            <div className="flex flex-col items-start gap-1 sm:items-end">
+              <span className="text-sm font-medium">{edu.honour}</span>
+              <span className="text-muted-foreground text-xs">
+                {edu.gradeLabel}: {edu.grade}
+              </span>
+            </div>
           </div>
 
-          {/* Location + date on same x-axis as institution */}
+          {/* Location + date */}
           <div className="text-muted-foreground flex flex-wrap gap-3 text-xs">
             <span className="flex items-center gap-1">
               <Calendar size={11} /> {edu.date}
@@ -54,7 +52,7 @@ function EducationCard({ edu }: { edu: EducationItem }) {
             </span>
           </div>
 
-          {/* Show details toggle — only if bullets exist */}
+          {/* Show details toggle */}
           {edu.bullets.length > 0 && (
             <>
               <button
@@ -85,6 +83,35 @@ function EducationCard({ edu }: { edu: EducationItem }) {
                 </ul>
               )}
             </>
+          )}
+
+          {/* Document buttons */}
+          {edu.documents.some((d) => d.link) && (
+            <div className="flex flex-wrap gap-2">
+              {edu.documents
+                .filter((d) => d.link)
+                .map((doc) => (
+                  <a
+                    key={doc.label}
+                    href={doc.link}
+                    target="_blank"
+                    rel="noreferrer"
+                    className="flex w-fit items-center gap-1.5 rounded-sm px-3 py-1.5 text-xs font-medium transition-colors duration-200"
+                    style={{ backgroundColor: "hsl(var(--skill-tile))" }}
+                    onMouseEnter={(e) =>
+                      (e.currentTarget.style.backgroundColor =
+                        "hsl(var(--accent))")
+                    }
+                    onMouseLeave={(e) =>
+                      (e.currentTarget.style.backgroundColor =
+                        "hsl(var(--skill-tile))")
+                    }
+                  >
+                    <FileText size={12} />
+                    {doc.label}
+                  </a>
+                ))}
+            </div>
           )}
         </div>
       </div>

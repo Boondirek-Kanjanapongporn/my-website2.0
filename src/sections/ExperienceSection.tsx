@@ -137,9 +137,16 @@ export default function ExperienceSection() {
         <Button
           variant="ghost"
           size="icon"
-          className="h-8 w-8 cursor-pointer"
+          className="h-8 w-8 cursor-pointer transition-colors"
+          style={{}}
           onClick={() => goTo(page - 1)}
           disabled={page === 0}
+          onMouseEnter={(e) =>
+            (e.currentTarget.style.backgroundColor = "hsl(var(--skill-tile))")
+          }
+          onMouseLeave={(e) =>
+            (e.currentTarget.style.backgroundColor = "transparent")
+          }
         >
           <ChevronLeft size={14} />
         </Button>
@@ -148,12 +155,22 @@ export default function ExperienceSection() {
           <Button
             key={i}
             size="icon"
-            className={`h-8 w-8 text-xs transition-colors cursor-pointer ${
+            className={`h-8 w-8 cursor-pointer text-xs transition-colors ${
               page === i
-                ? "bg-[#5e3023] text-white hover:bg-[#4a2419]"
-                : "text-muted-foreground hover:bg-accent hover:text-foreground bg-transparent"
+                ? "text-white"
+                : "text-muted-foreground hover:text-foreground bg-transparent"
             }`}
+            style={page === i ? { backgroundColor: "#5e3023" } : {}}
             onClick={() => goTo(i)}
+            onMouseEnter={(e) => {
+              if (page !== i)
+                e.currentTarget.style.backgroundColor =
+                  "hsl(var(--skill-tile))";
+            }}
+            onMouseLeave={(e) => {
+              if (page !== i)
+                e.currentTarget.style.backgroundColor = "transparent";
+            }}
           >
             {i + 1}
           </Button>
@@ -162,9 +179,15 @@ export default function ExperienceSection() {
         <Button
           variant="ghost"
           size="icon"
-          className="h-8 w-8 cursor-pointer"
+          className="h-8 w-8 cursor-pointer transition-colors"
           onClick={() => goTo(page + 1)}
           disabled={page === totalPages - 1}
+          onMouseEnter={(e) =>
+            (e.currentTarget.style.backgroundColor = "hsl(var(--skill-tile))")
+          }
+          onMouseLeave={(e) =>
+            (e.currentTarget.style.backgroundColor = "transparent")
+          }
         >
           <ChevronRight size={14} />
         </Button>
