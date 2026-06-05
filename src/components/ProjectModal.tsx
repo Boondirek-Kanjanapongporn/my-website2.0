@@ -69,7 +69,9 @@ function MediaCarousel({ project }: { project: Project }) {
           <button
             onClick={() => setIndex((i) => Math.max(0, i - 1))}
             disabled={index === 0}
-            className="text-muted-foreground hover:text-foreground disabled:opacity-30"
+            className={`text-muted-foreground hover:text-foreground disabled:opacity-30 ${
+              index === 0 ? "cursor-default" : "cursor-pointer"
+            }`}
           >
             <ChevronLeft size={18} />
           </button>
@@ -79,7 +81,9 @@ function MediaCarousel({ project }: { project: Project }) {
           <button
             onClick={() => setIndex((i) => Math.min(total - 1, i + 1))}
             disabled={index === total - 1}
-            className="text-muted-foreground hover:text-foreground disabled:opacity-30"
+            className={`text-muted-foreground hover:text-foreground disabled:opacity-30 ${
+              index === total - 1 ? "cursor-default" : "cursor-pointer"
+            }`}
           >
             <ChevronRight size={18} />
           </button>
