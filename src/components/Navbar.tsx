@@ -56,7 +56,14 @@ export default function Navbar() {
               key={link.label}
               href={link.section ? `#${link.section}` : link.href}
               onClick={(e) => handleNavClick(e, link.section, link.href)}
-              className="text-muted-foreground hover:text-foreground text-sm transition-colors"
+              className="text-muted-foreground hover:text-foreground rounded-sm px-3 py-1.5 text-sm transition-colors"
+              onMouseEnter={(e) =>
+                (e.currentTarget.style.backgroundColor =
+                  "hsl(var(--skill-tile))")
+              }
+              onMouseLeave={(e) =>
+                (e.currentTarget.style.backgroundColor = "transparent")
+              }
             >
               {link.label}
             </a>
@@ -67,10 +74,27 @@ export default function Navbar() {
             onClick={toggle}
             aria-label="Toggle theme"
             className="cursor-pointer"
+            onMouseEnter={(e) =>
+              (e.currentTarget.style.backgroundColor = "hsl(var(--skill-tile))")
+            }
+            onMouseLeave={(e) =>
+              (e.currentTarget.style.backgroundColor = "transparent")
+            }
           >
             {theme === "dark" ? <Sun size={16} /> : <Moon size={16} />}
           </Button>
-          <Button size="sm">Contact</Button>
+          <button
+            className="cursor-pointer rounded-sm border px-4 py-1.5 text-sm font-medium transition-colors duration-200"
+            style={{ borderColor: "hsl(var(--border))" }}
+            onMouseEnter={(e) =>
+              (e.currentTarget.style.backgroundColor = "hsl(var(--skill-tile))")
+            }
+            onMouseLeave={(e) =>
+              (e.currentTarget.style.backgroundColor = "transparent")
+            }
+          >
+            Contact
+          </button>
         </nav>
 
         {/* Mobile: theme toggle + hamburger */}
@@ -80,6 +104,12 @@ export default function Navbar() {
             size="icon"
             onClick={toggle}
             className="cursor-pointer"
+            onMouseEnter={(e) =>
+              (e.currentTarget.style.backgroundColor = "hsl(var(--skill-tile))")
+            }
+            onMouseLeave={(e) =>
+              (e.currentTarget.style.backgroundColor = "transparent")
+            }
           >
             {theme === "dark" ? <Sun size={16} /> : <Moon size={16} />}
           </Button>
@@ -102,7 +132,14 @@ export default function Navbar() {
                 key={link.label}
                 href={link.section ? `#${link.section}` : link.href}
                 onClick={(e) => handleNavClick(e, link.section, link.href)}
-                className="text-muted-foreground hover:text-foreground text-sm"
+                className="text-muted-foreground hover:text-foreground rounded-sm px-3 py-1.5 text-sm"
+                onMouseEnter={(e) =>
+                  (e.currentTarget.style.backgroundColor =
+                    "hsl(var(--skill-tile))")
+                }
+                onMouseLeave={(e) =>
+                  (e.currentTarget.style.backgroundColor = "transparent")
+                }
               >
                 {link.label}
               </a>
