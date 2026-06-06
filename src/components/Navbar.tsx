@@ -83,8 +83,9 @@ export default function Navbar() {
           >
             {theme === "dark" ? <Sun size={16} /> : <Moon size={16} />}
           </Button>
-          <button
-            className="cursor-pointer rounded-sm border px-4 py-1.5 text-sm font-medium transition-colors duration-200"
+          <Link
+            to="/contact"
+            className="rounded-sm border px-4 py-1.5 text-sm font-medium transition-colors duration-200"
             style={{ borderColor: "hsl(var(--border))" }}
             onMouseEnter={(e) =>
               (e.currentTarget.style.backgroundColor = "hsl(var(--skill-tile))")
@@ -94,7 +95,7 @@ export default function Navbar() {
             }
           >
             Contact
-          </button>
+          </Link>
         </nav>
 
         {/* Mobile: theme toggle + hamburger */}
