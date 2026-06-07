@@ -9,10 +9,12 @@ export const experience = [
     logoLight: "/assets/logos/jpmorgan3.png",
     skills: ["Java", "JavaScript", "Spring Boot", "React.js", "SQL"],
     bullets: [
-      "Developed backend APIs to query internal cache for Private Equities' daily position snapshots",
-      "Implemented logic in the transaction system to correctly handle value-based instruments, ensuring consistent data storage despite intraday price fluctuations",
-      "Refactored the system to support migration to a new integration, removing outdated code and improving maintainability",
-      "Migrated legacy test functions from JUnit 4 to JUnit 5 ensuring latest code practices",
+      "Engineered a centralized Kafka Cache Query API using Spring Boot annotations, eliminating redundant codebase patterns across multiple repositories and enabling fast, attribute-based querying for distributed microservices.",
+      "Resolved critical valuation calculation bugs and calibrated precise matching thresholds for the transaction processing engine, successfully eliminating false reconciliation breaks and reducing SRE diagnostic overhead.",
+      "Architected an optimized database storage schema and high-performance retrieval APIs for financial summaries, significantly reducing data load times and accelerating UI rendering speeds for internal analytics tools.",
+      "Designed an automated data-purging pipeline for outdated snapshots across distributed microservices, significantly shrinking the database storage footprint and boosting system-wide query efficiency.",
+      "Led the frontend development of an internal portfolio simulation platform, building interactive tactical allocation screens, data visualization graphs, and an automated portfolio rebalancing feature to streamline user workflows.",
+      "Refactored core services to publish domain models directly to Kafka, removing legacy tight service-to-service dependencies and modernizing legacy test suites from JUnit 4 to JUnit 5 to ensure cutting-edge testing practices.",
     ],
   },
   {
