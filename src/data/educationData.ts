@@ -20,9 +20,10 @@ export const education = [
       },
     ],
     bullets: [
+      "Graduated with Specialism in Theoretical Computer Science",
       "Software Engineer Intern at JP Morgan Chase",
       "GUSS Software Developer at University of Glasgow",
-      "Awarded Level 3 Honours Class Prize and £100 cash",
+      "Awarded Level 3 Honours Class Prize 2022 and £100 cash",
     ],
   },
   {
