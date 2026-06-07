@@ -23,14 +23,14 @@ function MediaCarousel({ project }: { project: Project }) {
   if (project.hasVideo) {
     media.push({
       type: "video",
-      src: `/src/assets/projects/${project.id}/walkthrough.mp4`,
+      src: `/assets/projects/${project.id}/walkthrough.mp4`,
     });
   }
 
   for (let i = 1; i <= project.imageCount; i++) {
     media.push({
       type: "image",
-      src: `/src/assets/projects/${project.id}/${i}.jpg`,
+      src: `/assets/projects/${project.id}/${i}.jpg`,
     });
   }
 

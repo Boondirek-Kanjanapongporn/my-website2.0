@@ -2,7 +2,7 @@ import { Badge } from "@/components/ui/badge";
 import { ArrowRight, Download } from "lucide-react";
 import { techBadges } from "@/data/heroData";
 import ContactIcons from "@/components/ContactIcons";
-import myPhoto from "@/assets/me.jpg";
+import myPhoto from "/assets/me.jpg";
 
 export default function HeroSection() {
   return (

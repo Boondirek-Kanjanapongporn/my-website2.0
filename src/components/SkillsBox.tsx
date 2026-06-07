@@ -15,7 +15,7 @@ function SkillIcon({ skillName }: { skillName: string }) {
     .replace(/\.js/g, "")
     .replace(/\s+/g, "");
   const needsWhite = theme === "dark" && darkModeWhiteIcons.includes(fileName);
-  const src = `/src/assets/icons/${fileName}${needsWhite ? "-white" : ""}.png`;
+  const src = `/assets/icons/${fileName}${needsWhite ? "-white" : ""}.png`;
 
   return (
     <img

@@ -7,8 +7,8 @@ export const education = [
     gradeLabel: "Grade",
     location: "Glasgow, United Kingdom",
     date: "Sep 2022 – May 2024",
-    logoDark: "/src/assets/logos/universityofglasgow.jpg",
-    logoLight: "/src/assets/logos/universityofglasgow.jpg",
+    logoDark: "/assets/logos/universityofglasgow.jpg",
+    logoLight: "/assets/logos/universityofglasgow.jpg",
     documents: [
       {
         label: "Transcript",
@@ -33,8 +33,8 @@ export const education = [
     gradeLabel: "GPA",
     location: "Bangkok, Thailand",
     date: "Aug 2020 – Aug 2022",
-    logoDark: "/src/assets/logos/kmitl.png",
-    logoLight: "/src/assets/logos/kmitl.png",
+    logoDark: "/assets/logos/kmitl.png",
+    logoLight: "/assets/logos/kmitl.png",
     documents: [
       { label: "Transcript", link: "" },
       { label: "Certificate", link: "" },

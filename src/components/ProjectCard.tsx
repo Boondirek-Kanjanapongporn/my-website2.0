@@ -8,7 +8,7 @@ interface Props {
 // Try to load first image or video thumbnail
 function ProjectThumbnail({ project }: { project: Project }) {
   if (project.imageCount > 0) {
-    const src = `/src/assets/projects/${project.id}/1.jpg`;
+    const src = `/assets/projects/${project.id}/1.jpg`;
 
     return (
       <img
