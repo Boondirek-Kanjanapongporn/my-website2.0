@@ -36,12 +36,15 @@ export default function HeroSection() {
               View Projects <ArrowRight size={15} />
             </a>
 
-            <button
-              className="flex w-fit items-center gap-2 rounded-sm border px-4 py-2 text-sm font-medium transition-colors duration-200 hover:bg-[hsl(var(--skill-tile))] cursor-pointer"
+            <a
+              href="https://drive.google.com/file/d/1nhfgAUE6rK5Xas0dlIk3xT71U2n8ovD5/view?usp=sharing"
+              target="_blank"
+              rel="noreferrer"
+              className="flex w-fit cursor-pointer items-center gap-2 rounded-sm border px-4 py-2 text-sm font-medium transition-colors duration-200 hover:bg-[hsl(var(--skill-tile))]"
               style={{ borderColor: "hsl(var(--border))" }}
             >
               <Download size={15} /> Resume
-            </button>
+            </a>
           </div>
         </div>
         <div className="flex flex-wrap gap-2">
