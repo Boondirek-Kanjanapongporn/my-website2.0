@@ -7,10 +7,7 @@ import {
   ChevronRight,
   Gamepad2,
 } from "lucide-react";
-import { Badge } from "@/components/ui/badge";
-import { Button } from "@/components/ui/button";
 import type { Project } from "@/data/projectsData";
-import { useTheme } from "@/components/ThemeProvider";
 
 interface Props {
   project: Project;
@@ -94,7 +91,6 @@ function MediaCarousel({ project }: { project: Project }) {
 }
 
 export default function ProjectModal({ project, onClose }: Props) {
-  const { theme } = useTheme();
   // Close on Escape key
   useEffect(() => {
     const handler = (e: KeyboardEvent) => {

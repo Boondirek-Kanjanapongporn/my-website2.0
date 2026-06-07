@@ -1,6 +1,4 @@
-import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
-import { Link } from "react-router-dom";
 import { ArrowRight, Download } from "lucide-react";
 import { techBadges } from "@/data/heroData";
 import ContactIcons from "@/components/ContactIcons";

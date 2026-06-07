@@ -17,7 +17,7 @@ export default function Navbar() {
   const [menuOpen, setMenuOpen] = useState(false);
   const location = useLocation();
 
-  const handleNavClick = (e: React.MouseEvent, section: string | null, href: string) => {
+  const handleNavClick = (e: React.MouseEvent, section: string | null) => {
     if (!section) return; // let normal navigation happen for /projects
 
     e.preventDefault();
@@ -51,23 +51,39 @@ export default function Navbar() {
 
         {/* Desktop nav */}
         <nav className="hidden items-center gap-6 md:flex">
-          {navLinks.map((link) => (
-            <a
-              key={link.label}
-              href={link.section ? `#${link.section}` : link.href}
-              onClick={(e) => handleNavClick(e, link.section, link.href)}
-              className="text-muted-foreground hover:text-foreground rounded-sm px-3 py-1.5 text-sm transition-colors"
-              onMouseEnter={(e) =>
-                (e.currentTarget.style.backgroundColor =
-                  "hsl(var(--skill-tile))")
-              }
-              onMouseLeave={(e) =>
-                (e.currentTarget.style.backgroundColor = "transparent")
-              }
-            >
-              {link.label}
-            </a>
-          ))}
+          {navLinks.map((link) =>
+            link.section ? (
+              <button
+                key={link.label}
+                onClick={(e) => handleNavClick(e, link.section)}
+                className="text-muted-foreground hover:text-foreground cursor-pointer rounded-sm px-3 py-1.5 text-sm transition-colors"
+                onMouseEnter={(e) =>
+                  (e.currentTarget.style.backgroundColor =
+                    "hsl(var(--skill-tile))")
+                }
+                onMouseLeave={(e) =>
+                  (e.currentTarget.style.backgroundColor = "transparent")
+                }
+              >
+                {link.label}
+              </button>
+            ) : (
+              <Link
+                key={link.label}
+                to={link.href}
+                className="text-muted-foreground hover:text-foreground rounded-sm px-3 py-1.5 text-sm transition-colors"
+                onMouseEnter={(e) =>
+                  (e.currentTarget.style.backgroundColor =
+                    "hsl(var(--skill-tile))")
+                }
+                onMouseLeave={(e) =>
+                  (e.currentTarget.style.backgroundColor = "transparent")
+                }
+              >
+                {link.label}
+              </Link>
+            ),
+          )}
           <Button
             variant="ghost"
             size="icon"
@@ -128,23 +144,40 @@ export default function Navbar() {
       {menuOpen && (
         <div className="bg-background border-t px-6 py-4 md:hidden">
           <nav className="flex flex-col gap-4">
-            {navLinks.map((link) => (
-              <a
-                key={link.label}
-                href={link.section ? `#${link.section}` : link.href}
-                onClick={(e) => handleNavClick(e, link.section, link.href)}
-                className="text-muted-foreground hover:text-foreground rounded-sm px-3 py-1.5 text-sm"
-                onMouseEnter={(e) =>
-                  (e.currentTarget.style.backgroundColor =
-                    "hsl(var(--skill-tile))")
-                }
-                onMouseLeave={(e) =>
-                  (e.currentTarget.style.backgroundColor = "transparent")
-                }
-              >
-                {link.label}
-              </a>
-            ))}
+            {navLinks.map((link) =>
+              link.section ? (
+                <button
+                  key={link.label}
+                  onClick={(e) => handleNavClick(e, link.section)}
+                  className="text-muted-foreground hover:text-foreground cursor-pointer rounded-sm px-3 py-1.5 text-sm"
+                  onMouseEnter={(e) =>
+                    (e.currentTarget.style.backgroundColor =
+                      "hsl(var(--skill-tile))")
+                  }
+                  onMouseLeave={(e) =>
+                    (e.currentTarget.style.backgroundColor = "transparent")
+                  }
+                >
+                  {link.label}
+                </button>
+              ) : (
+                <Link
+                  key={link.label}
+                  to={link.href}
+                  className="text-muted-foreground hover:text-foreground rounded-sm px-3 py-1.5 text-sm"
+                  onMouseEnter={(e) =>
+                    (e.currentTarget.style.backgroundColor =
+                      "hsl(var(--skill-tile))")
+                  }
+                  onMouseLeave={(e) =>
+                    (e.currentTarget.style.backgroundColor = "transparent")
+                  }
+                  onClick={() => setMenuOpen(false)}
+                >
+                  {link.label}
+                </Link>
+              ),
+            )}
           </nav>
         </div>
       )}
