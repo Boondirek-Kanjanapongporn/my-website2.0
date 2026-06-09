@@ -141,6 +141,7 @@ export default function Navbar() {
       </div>
 
       {/* Mobile menu */}
+      {/* Mobile menu */}
       {menuOpen && (
         <div className="bg-background border-t px-6 py-4 md:hidden">
           <nav className="flex flex-col gap-4">
@@ -149,7 +150,7 @@ export default function Navbar() {
                 <button
                   key={link.label}
                   onClick={(e) => handleNavClick(e, link.section)}
-                  className="text-muted-foreground hover:text-foreground cursor-pointer rounded-sm px-3 py-1.5 text-sm"
+                  className="text-muted-foreground hover:text-foreground w-full cursor-pointer rounded-sm px-3 py-1.5 text-left text-sm"
                   onMouseEnter={(e) =>
                     (e.currentTarget.style.backgroundColor =
                       "hsl(var(--skill-tile))")
@@ -164,7 +165,7 @@ export default function Navbar() {
                 <Link
                   key={link.label}
                   to={link.href}
-                  className="text-muted-foreground hover:text-foreground rounded-sm px-3 py-1.5 text-sm"
+                  className="text-muted-foreground hover:text-foreground w-full rounded-sm px-3 py-1.5 text-sm"
                   onMouseEnter={(e) =>
                     (e.currentTarget.style.backgroundColor =
                       "hsl(var(--skill-tile))")
@@ -178,6 +179,22 @@ export default function Navbar() {
                 </Link>
               ),
             )}
+
+            {/* Contact link */}
+            <Link
+              to="/contact"
+              className="text-muted-foreground hover:text-foreground w-full rounded-sm px-3 py-1.5 text-sm"
+              onMouseEnter={(e) =>
+                (e.currentTarget.style.backgroundColor =
+                  "hsl(var(--skill-tile))")
+              }
+              onMouseLeave={(e) =>
+                (e.currentTarget.style.backgroundColor = "transparent")
+              }
+              onClick={() => setMenuOpen(false)}
+            >
+              Contact
+            </Link>
           </nav>
         </div>
       )}
