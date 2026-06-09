@@ -1,7 +1,7 @@
 export const experience = [
   {
-    company: "J.P. Morgan Asset Management",
-    role: "Software Engineer (SEP Program)",
+    company: "JPMorgan Chase & Co. — Wealth & Asset Management (AWM)",
+    role: "Software Engineer I",
     type: "Full-time",
     location: "Glasgow, Scotland, UK · On-site",
     date: "Sep 2024 – Present",
@@ -18,7 +18,7 @@ export const experience = [
     ],
   },
   {
-    company: "JPMorgan Chase & Co.",
+    company: "JPMorgan Chase & Co. — Wealth & Asset Management (AWM)",
     role: "Software Engineer Intern",
     type: "Internship",
     location: "Glasgow, Scotland, UK · On-site",
