@@ -125,9 +125,12 @@ export default function EducationSection() {
       <p className="text-muted-foreground mb-2 text-xs font-semibold tracking-[0.2em] uppercase">
         Academic background
       </p>
-      <h2 className="mb-12 flex items-center gap-3 text-3xl font-bold tracking-tight md:text-4xl">
+      <h2 className="mb-2 flex items-center gap-3 text-3xl font-bold tracking-tight md:text-4xl">
         Education <GraduationCap size={32} />
       </h2>
+      <p className="text-muted-foreground mb-12 text-sm">
+        Enrolled in a double-degree Program
+      </p>
       <div className="flex flex-col gap-3">
         {education.map((edu) => (
           <EducationCard key={edu.institution} edu={edu} />
