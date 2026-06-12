@@ -24,7 +24,7 @@ export default function HeroSection() {
         <p className="text-muted-foreground max-w-lg text-lg leading-relaxed">
           Software Engineer I in the Asset & Wealth Management division at
           JPMorgan Chase & Co. Working at the intersection of engineering and
-          finance, preparing to pursue a Master of Finance (M.Fin.) to pioneer
+          finance, preparing to pursue a Master of Finance to pioneer
           the next generation of FinTech, AI, and quantitative finance.
         </p>
         <div className="flex flex-wrap gap-3">
