@@ -22,10 +22,10 @@ export default function HeroSection() {
           </span>
         </h1>
         <p className="text-muted-foreground max-w-lg text-lg leading-relaxed">
-          Graduate Software Engineer within Asset & Wealth Management division
-          at JPMorgan Chase. Operating at the intersection of engineering and
-          finance, currently targeting a Master of Finance (M.Fin.) to pioneer the next
-          generation of FinTech and AI.
+          Software Engineer I in the Asset & Wealth Management division at
+          JPMorgan Chase & Co. Working at the intersection of engineering and
+          finance, preparing to pursue a Master of Finance (M.Fin.) to pioneer
+          the next generation of FinTech, AI, and quantitative finance.
         </p>
         <div className="flex flex-wrap gap-3">
           <div className="flex flex-wrap gap-3">
