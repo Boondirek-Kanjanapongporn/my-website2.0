@@ -9,12 +9,12 @@ export const experience = [
     logoLight: "/assets/logos/jpmorgan3.png",
     skills: ["Java", "JavaScript", "Spring Boot", "React.js", "SQL"],
     bullets: [
-      "Engineered a centralized Kafka Cache Query API using Spring Boot annotations, eliminating redundant codebase patterns across multiple repositories and enabling fast, attribute-based querying for distributed microservices.",
-      "Resolved critical valuation calculation bugs and calibrated precise matching thresholds for the transaction processing engine, successfully eliminating false reconciliation breaks and reducing SRE diagnostic overhead.",
-      "Architected an optimized database storage schema and high-performance retrieval APIs for financial summaries, significantly reducing data load times and accelerating UI rendering speeds for internal analytics tools.",
-      "Designed an automated data-purging pipeline for outdated snapshots across distributed microservices, significantly shrinking the database storage footprint and boosting system-wide query efficiency.",
-      "Led the frontend development of an internal portfolio simulation platform, building interactive tactical allocation screens, data visualization graphs, and an automated portfolio rebalancing feature to streamline user workflows.",
-      "Refactored core services to publish domain models directly to Kafka, removing legacy tight service-to-service dependencies and modernizing legacy test suites from JUnit 4 to JUnit 5 to ensure cutting-edge testing practices.",
+      "Engineered a centralized Kafka-based cache query API using Spring Boot, reducing duplicated query logic across microservices and enabling fast attribute-based data retrieval for distributed systems.",
+      "Identified and resolved a valuation calculation issue in the transaction reconciliation engine affecting ELN orders, where price movement between order creation and execution caused incorrect mismatch signals for fully executed trades, reducing false reconciliation alerts and SRE investigation overhead.",
+      "Designed optimized database schemas and retrieval APIs for financial summaries, improving data load performance and dashboard responsiveness for internal analytics tools.",
+      "Developed an automated data-purging pipeline for outdated snapshots across distributed microservices, reducing storage footprint and improving query efficiency.",
+      "Led frontend development of an internal portfolio simulation platform for training new fund managers, featuring interactive asset allocation tools, performance visualizations, and automated portfolio rebalancing against benchmark indices.",
+      "Refactored core services to publish domain models directly to Kafka, removing legacy tight service-to-service dependencies and modernizing legacy test suites from JUnit 4 to JUnit 5 to ensure up-to-date testing practices.",
     ],
   },
   {
