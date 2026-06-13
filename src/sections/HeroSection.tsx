@@ -12,7 +12,7 @@ export default function HeroSection() {
     >
       <div className="flex flex-1 flex-col gap-8">
         <p className="text-muted-foreground text-xs font-semibold tracking-[0.2em] uppercase">
-          Graduate Software Engineer I · JPMorgan Chase & Co.
+          Software Engineer I · JPMorgan Chase & Co.
         </p>
         <h1 className="text-5xl leading-tight font-bold tracking-tight md:text-7xl">
           Hi, I'm
