@@ -1,7 +1,8 @@
 export const education = [
   {
     institution: "University of Glasgow",
-    degree: "Bachelor of Science (B.Sc.) — Software Engineering",
+    degree:
+      "Bachelor of Science (B.Sc.) — Software Engineering (Theoretical Computer Science)",
     honour: "Honours of the First Class",
     grade: "18.36 / 22.00",
     gradeLabel: "Grade",
