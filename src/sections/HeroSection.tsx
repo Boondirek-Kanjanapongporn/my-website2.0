@@ -12,7 +12,7 @@ export default function HeroSection() {
     >
       <div className="flex flex-1 flex-col gap-8">
         <p className="text-muted-foreground text-xs font-semibold tracking-[0.2em] uppercase">
-          Software Engineer I · JPMorgan Chase & Co.
+          Software Engineer I · JPMorgan Chase & Co. · Asset & Wealth Management
         </p>
         <h1 className="text-5xl leading-tight font-bold tracking-tight md:text-7xl">
           Hi, I'm
@@ -22,9 +22,8 @@ export default function HeroSection() {
           </span>
         </h1>
         <p className="text-muted-foreground max-w-lg text-lg leading-relaxed">
-          Software Engineer I in the Asset & Wealth Management division at
-          JPMorgan Chase & Co. Working at the intersection of engineering and
-          finance, I am ambitious to pioneer the next generation of FinTech, AI, and quantitative finance.
+          Software engineer with 2 years of industry experience, focused on pioneering solutions in AI, 
+          Machine Learning, and Intelligent Robotics. Aspiring postgraduate researcher in Machine Intelligence.
         </p>
         <div className="flex flex-wrap gap-3">
           <div className="flex flex-wrap gap-3">
@@ -37,13 +36,20 @@ export default function HeroSection() {
             </a>
 
             <a
-              href="https://drive.google.com/file/d/1nhfgAUE6rK5Xas0dlIk3xT71U2n8ovD5/view?usp=sharing"
+              // =========================================================================================
+              // Work Resume:
+              //href="https://drive.google.com/file/d/1nhfgAUE6rK5Xas0dlIk3xT71U2n8ovD5/view?usp=sharing"
+
+              // University Curriculum Vitae:
+              href="https://drive.google.com/file/d/1jfLLDzZVMVLMnecv-vWS6ajp84ehww6j/view?usp=sharing"
+              // =========================================================================================
+
               target="_blank"
               rel="noreferrer"
               className="flex w-fit cursor-pointer items-center gap-2 rounded-sm border px-4 py-2 text-sm font-medium transition-colors duration-200 hover:bg-[hsl(var(--skill-tile))]"
               style={{ borderColor: "hsl(var(--border))" }}
             >
-              <Download size={15} /> Resume
+              <Download size={15} /> Curriculum Vitae
             </a>
           </div>
         </div>
