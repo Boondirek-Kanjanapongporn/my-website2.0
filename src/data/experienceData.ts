@@ -1,6 +1,6 @@
 export const experience = [
   {
-    company: "JPMorgan Chase & Co. — Wealth & Asset Management (AWM)",
+    company: "JPMorgan Chase & Co. — Asset & Wealth Management (AWM)",
     role: "Software Engineer I",
     type: "Full-time",
     location: "Glasgow, Scotland, UK · On-site",
@@ -18,7 +18,7 @@ export const experience = [
     ],
   },
   {
-    company: "JPMorgan Chase & Co. — Wealth & Asset Management (AWM)",
+    company: "JPMorgan Chase & Co. —  Asset & Wealth Management (AWM)",
     role: "Software Engineer Intern",
     type: "Internship",
     location: "Glasgow, Scotland, UK · On-site",
